@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
+    android:padding="16dp">
+
+    <!-- Header status with red dot -->
+    <LinearLayout
+        android:id="@+id/widget_header_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/widget_red_dot"
+            android:contentDescription="Status indicator" />
+
+        <TextView
+            android:id="@+id/widget_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GLYPH CLOCK"
+            android:textColor="#8E8E93"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed" />
+    </LinearLayout>
+
+    <!-- Theme Modifier Toggle Button -->
+    <TextView
+        android:id="@+id/widget_theme_btn"
+        android:layout_width="48dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="#1C1C1E"
+        android:gravity="center"
+        android:text="THEME"
+        android:textColor="#FFFFFF"
+        android:textSize="9sp"
+        android:textStyle="bold" />
+
+    <!-- Main Time Body -->
+    <TextView
+        android:id="@+id/widget_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_header_container"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:text="12:00"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-thin" />
+
+    <!-- Main Date Body -->
+    <TextView
+        android:id="@+id/widget_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_time"
+        android:layout_alignParentStart="true"
+        android:text="Sunday, Jun 21"
+        android:textColor="#8E8E93"
+        android:textSize="12sp"
+        android:fontFamily="monospace"
+        android:textStyle="normal" />
+
+</RelativeLayout>

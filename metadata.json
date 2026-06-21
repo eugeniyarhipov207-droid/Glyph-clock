@@ -1,0 +1,6 @@
+{
+  "name": "Glyph Clock",
+  "description": "Minimalist clock, alarms, world clock, stopwatch, and timer styled in the signature Nothing Phone dot-matrix design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
