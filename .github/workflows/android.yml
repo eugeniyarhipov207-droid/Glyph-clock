@@ -14,14 +14,23 @@ jobs:
 
       - name: Build with System Gradle
         run: |
+          # Создаем дефолтный keystore, чтобы таск :app:validateSigningDebug не падал
+          mkdir -p ~/.android
+          keytool -genkey -v -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+          
+          # На всякий случай копируем его и в корень проекта, если он зашит в build.gradle относительно корня
+          cp ~/.android/debug.keystore ./debug.keystore || true
+          
           # Ищем, в какой папке лежит build.gradle
           GRADLE_DIR=$(find . -name "build.gradle*" -not -path "*/app/*" | head -n 1)
           if [ -z "$GRADLE_DIR" ]; then
-            # Если проект в корне
+            # Если проект в корне, также подсовываем ключ во внутреннюю папку app, если она есть
+            mkdir -p app && cp ~/.android/debug.keystore app/debug.keystore || true
             gradle assembleDebug
           else
             DIR_PATH=$(dirname "$GRADLE_DIR")
             cd "$DIR_PATH"
+            mkdir -p app && cp ~/.android/debug.keystore app/debug.keystore || true
             gradle assembleDebug
             mkdir -p ../app/build/outputs/apk/debug/
             cp app/build/outputs/apk/debug/app-debug.apk ../app/build/outputs/apk/debug/ 2>/dev/null || cp build/outputs/apk/debug/app-debug.apk ../app/build/outputs/apk/debug/ 2>/dev/null || true
