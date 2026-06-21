@@ -5,7 +5,10 @@
     <!-- Permissions for Nothing Glyph API and foreground services -->
     <uses-permission android:name="com.nothing.glyph.permission.USE_GLYPH" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <!-- Performance query check for Nothing Device manager packages -->
     <queries>
         <package android:name="com.nothing.glyph" />
